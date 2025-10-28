@@ -1,12 +1,9 @@
-// routes/user.js
 const express = require('express');
 const router = express.Router();
-const { getUsers, addUser } = require('../controllers/userController');
+const userController = require('../controllers/userController');
 
-// GET /users
-router.get('/', getUsers);
-
-// POST /users
-router.post('/', addUser);
+// Chỉ dùng '/' vì server đã gắn prefix '/users'
+router.get('/', userController.getUsers);
+router.post('/', userController.createUser);
 
 module.exports = router;
